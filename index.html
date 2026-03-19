@@ -266,59 +266,54 @@
       </div>
     </section>
     <!-- Reservation Section -->
-    <section class="bg-white py-16">
+    <section class="bg-white py-12">
       <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
-        <div class="bg-surface-container-low p-8 md:p-12 rounded-2xl">
-        <div class="text-center mb-10">
-          <span
-            class="font-label text-xs tracking-widest uppercase text-primary font-bold"
-            >Suplanuokite vizit&#261;</span
-          >
-          <h2 class="font-headline text-3xl mt-2">Rezervacija</h2>
-        </div>
-        <form class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
-          <div class="space-y-2">
-            <label class="font-label text-sm text-on-surface-variant"
-              >Atvykimas</label
-            >
-            <input
-              class="w-full bg-surface-container-lowest border-outline-variant/15 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"
-              type="date"
-            />
+        <div class="bg-surface-container-low p-6 md:p-10 rounded-2xl">
+          <div class="text-center mb-6">
+            <span class="font-label text-xs tracking-widest uppercase text-primary font-bold">Suplanuokite vizit&#261;</span>
+            <h2 class="font-headline text-3xl mt-2">Rezervacija</h2>
           </div>
-          <div class="space-y-2">
-            <label class="font-label text-sm text-on-surface-variant"
-              >I&#353;vykimas</label
-            >
-            <input
-              class="w-full bg-surface-container-lowest border-outline-variant/15 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"
-              type="date"
-            />
+          <div class="flex flex-col md:flex-row gap-6 items-start justify-center">
+            <!-- Calendar -->
+            <div class="w-full max-w-[420px]">
+              <div class="flex items-center justify-between mb-3">
+                <button onclick="changeMonth(-1)" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+                  <span class="material-symbols-outlined text-xl">chevron_left</span>
+                </button>
+                <span id="cal-month" class="font-headline text-lg text-on-surface"></span>
+                <button onclick="changeMonth(1)" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+                  <span class="material-symbols-outlined text-xl">chevron_right</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-7 text-center text-xs font-label text-on-surface-variant uppercase tracking-wider mb-1">
+                <span>Pr</span><span>An</span><span>Tr</span><span>Kt</span><span>Pn</span><span>&#352;t</span><span>Sk</span>
+              </div>
+              <div id="cal-days" class="grid grid-cols-7 text-center text-sm"></div>
+            </div>
+            <!-- Sidebar controls -->
+            <div class="w-full md:w-auto flex flex-col gap-4 md:min-w-[200px]">
+              <div>
+                <label class="font-label text-xs text-on-surface-variant uppercase tracking-wider block mb-1">Atvykimas</label>
+                <div id="cal-checkin" class="font-body text-sm text-on-surface bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-3 py-2">—</div>
+              </div>
+              <div>
+                <label class="font-label text-xs text-on-surface-variant uppercase tracking-wider block mb-1">I&#353;vykimas</label>
+                <div id="cal-checkout" class="font-body text-sm text-on-surface bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-3 py-2">—</div>
+              </div>
+              <div>
+                <label class="font-label text-xs text-on-surface-variant uppercase tracking-wider block mb-2">Sve&#269;i&#371; skai&#269;ius</label>
+                <div class="flex items-center gap-3">
+                  <button onclick="updateGuests(-1)" class="w-8 h-8 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors">−</button>
+                  <span id="guest-count" class="font-body text-lg font-medium w-6 text-center">1</span>
+                  <button onclick="updateGuests(1)" class="w-8 h-8 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors">+</button>
+                </div>
+              </div>
+              <button class="mt-2 bg-primary text-on-primary py-3 px-6 rounded-xl font-medium hover:opacity-90 transition-all flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-xl">search</span>
+                Ie&#353;koti laisv&#371;
+              </button>
+            </div>
           </div>
-          <div class="space-y-2">
-            <label class="font-label text-sm text-on-surface-variant"
-              >Sve&#269;i&#371; skai&#269;ius</label
-            >
-            <select
-              class="w-full bg-surface-container-lowest border-outline-variant/15 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary"
-            >
-              <option>1 asmuo</option>
-              <option>2 asmenys</option>
-              <option>3 asmenys</option>
-              <option>4+ asmen&#371;</option>
-            </select>
-          </div>
-          <div>
-            <button
-              class="w-full bg-primary text-on-primary py-3.5 rounded-xl font-medium hover:opacity-90 transition-all flex items-center justify-center gap-2"
-            >
-              <span class="material-symbols-outlined" data-icon="search"
-                >search</span
-              >
-              Patikrinti u&#382;imtum&#261;
-            </button>
-          </div>
-        </form>
         </div>
       </div>
     </section>
@@ -345,81 +340,84 @@
           </div>
         </div>
       </section>
-      <!-- Conference Hall Section -->
-      <section
-        class="my-32 py-20 bg-surface-container shadow-sm rounded-3xl overflow-hidden relative"
-        id="conference"
-      >
-        <div
-          class="absolute top-0 right-0 w-1/3 h-full bg-surface-container-high -skew-x-12 translate-x-1/2 -z-10"
-        ></div>
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-12 px-8 md:px-16 items-center"
-        >
-          <div>
-            <span
-              class="font-label text-xs tracking-widest uppercase text-primary font-bold"
-              >Sal&#279;s ir renginiai</span
-            >
-            <h2 class="font-headline text-4xl mt-4 mb-6">
-              Konferencij&#371; sal&#279;
-            </h2>
-            <p class="font-body text-on-surface-variant leading-relaxed mb-8">
-              Erdvi sal&#279; rekolekcijoms, seminarams ir susitikimams.
-              M&#363;s&#371; did&#382;ioji sal&#279; tinka tiek konferencijoms,
-              tiek dvasin&#279;ms rekolekcijoms. Erdv&#279; pasi&#382;ymi puikia
-              akustika ir nat&#363;ralia &#353;viesa.
-            </p>
-            <div class="grid grid-cols-2 gap-6 mb-8">
-              <div>
-                <span class="block text-2xl font-headline text-primary"
-                  >90</span
-                >
-                <span
-                  class="text-sm font-label uppercase tracking-tighter opacity-60"
-                  >Viet&#371; talpa</span
-                >
+    </main>
+    <!-- Conference Hall Section -->
+    <section class="bg-white py-16" id="conference">
+      <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
+        <div class="py-20 bg-surface-container rounded-3xl overflow-hidden relative">
+          <div
+            class="absolute top-0 right-0 w-1/3 h-full bg-surface-container-high -skew-x-12 translate-x-1/2 -z-10"
+          ></div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-12 px-8 md:px-16 items-center"
+          >
+            <div>
+              <span
+                class="font-label text-xs tracking-widest uppercase text-primary font-bold"
+                >Sal&#279;s ir renginiai</span
+              >
+              <h2 class="font-headline text-4xl mt-4 mb-6">
+                Konferencij&#371; sal&#279;
+              </h2>
+              <p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                Erdvi sal&#279; rekolekcijoms, seminarams ir susitikimams.
+                M&#363;s&#371; did&#382;ioji sal&#279; tinka tiek konferencijoms,
+                tiek dvasin&#279;ms rekolekcijoms. Erdv&#279; pasi&#382;ymi puikia
+                akustika ir nat&#363;ralia &#353;viesa.
+              </p>
+              <div class="grid grid-cols-2 gap-6 mb-8">
+                <div>
+                  <span class="block text-2xl font-headline text-primary"
+                    >90</span
+                  >
+                  <span
+                    class="text-sm font-label uppercase tracking-tighter opacity-60"
+                    >Viet&#371; talpa</span
+                  >
+                </div>
+                <div>
+                  <span class="block text-2xl font-headline text-primary"
+                    >Audio+</span
+                  >
+                  <span
+                    class="text-sm font-label uppercase tracking-tighter opacity-60"
+                    >Technin&#279; &#303;ranga</span
+                  >
+                </div>
               </div>
-              <div>
-                <span class="block text-2xl font-headline text-primary"
-                  >Audio+</span
-                >
-                <span
-                  class="text-sm font-label uppercase tracking-tighter opacity-60"
-                  >Technin&#279; &#303;ranga</span
-                >
-              </div>
+              <button
+                class="bg-primary text-on-primary px-8 py-3 rounded-xl font-medium"
+              >
+                Su&#382;inoti daugiau
+              </button>
             </div>
-            <button
-              class="bg-primary text-on-primary px-8 py-3 rounded-xl font-medium"
-            >
-              Su&#382;inoti daugiau
-            </button>
-          </div>
-          <div class="relative">
-            <img
-              alt="Konferencij&#371; sal&#279;"
-              class="rounded-2xl shadow-xl"
-              data-alt="&#352;viesus auditorijos vaizdas"
-              src="./images/conference/1.jpg"
-            />
-            <div
-              class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg flex items-center gap-4"
-            >
+            <div class="relative">
+              <img
+                alt="Konferencij&#371; sal&#279;"
+                class="rounded-2xl shadow-xl"
+                data-alt="&#352;viesus auditorijos vaizdas"
+                src="./images/conference/1.jpg"
+              />
               <div
-                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary"
+                class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg flex items-center gap-4"
               >
-                <span class="material-symbols-outlined" data-icon="podium"
-                  >podium</span
+                <div
+                  class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary"
+                >
+                  <span class="material-symbols-outlined" data-icon="podium"
+                    >podium</span
+                  >
+                </div>
+                <span class="font-body text-sm font-semibold"
+                  >Moderni garso ir vaizdo &#303;ranga</span
                 >
               </div>
-              <span class="font-body text-sm font-semibold"
-                >Moderni garso ir vaizdo &#303;ranga</span
-              >
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    <main class="max-w-[1100px] mx-auto px-6 lg:px-0">
       <!-- Contact Us Section -->
       <section class="my-32" id="contacts">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -619,6 +617,82 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeLightbox();
       });
+    </script>
+    <script>
+      (function () {
+        const months = ["Sausis","Vasaris","Kovas","Balandis","Gegu&#382;&#279;","Bir&#382;elis","Liepa","Rugpj&#363;tis","Rugs&#279;jis","Spalis","Lapkritis","Gruodis"];
+        const monthNames = ["Sausis","Vasaris","Kovas","Balandis","Gegužė","Birželis","Liepa","Rugpjūtis","Rugsėjis","Spalis","Lapkritis","Gruodis"];
+        let current = new Date();
+        let curMonth = current.getMonth();
+        let curYear = current.getFullYear();
+        let checkin = null, checkout = null, guests = 1;
+
+        function renderCalendar() {
+          document.getElementById("cal-month").textContent = monthNames[curMonth] + " " + curYear;
+          const first = new Date(curYear, curMonth, 1);
+          const lastDay = new Date(curYear, curMonth + 1, 0).getDate();
+          let startDay = first.getDay() - 1;
+          if (startDay < 0) startDay = 6;
+          const container = document.getElementById("cal-days");
+          container.innerHTML = "";
+          for (let i = 0; i < startDay; i++) {
+            container.innerHTML += '<span class="py-1.5"></span>';
+          }
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          for (let d = 1; d <= lastDay; d++) {
+            const date = new Date(curYear, curMonth, d);
+            const isPast = date < today;
+            const isCheckin = checkin && date.getTime() === checkin.getTime();
+            const isCheckout = checkout && date.getTime() === checkout.getTime();
+            const inRange = checkin && checkout && date > checkin && date < checkout;
+            let cls = "py-1.5 rounded-lg cursor-pointer transition-colors ";
+            if (isPast) {
+              cls += "text-outline/40 cursor-default";
+            } else if (isCheckin || isCheckout) {
+              cls += "bg-primary text-white font-semibold";
+            } else if (inRange) {
+              cls += "bg-primary/15 text-primary";
+            } else {
+              cls += "hover:bg-surface-container-high text-on-surface";
+            }
+            container.innerHTML += '<span class="' + cls + '" data-day="' + d + '" ' + (isPast ? "" : 'onclick="selectDay(' + d + ')"') + ">" + d + "</span>";
+          }
+        }
+
+        window.selectDay = function (d) {
+          const date = new Date(curYear, curMonth, d);
+          if (!checkin || (checkin && checkout)) {
+            checkin = date;
+            checkout = null;
+          } else if (date > checkin) {
+            checkout = date;
+          } else {
+            checkin = date;
+            checkout = null;
+          }
+          const fmt = function (dt) {
+            return dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");
+          };
+          document.getElementById("cal-checkin").textContent = checkin ? fmt(checkin) : "—";
+          document.getElementById("cal-checkout").textContent = checkout ? fmt(checkout) : "—";
+          renderCalendar();
+        };
+
+        window.changeMonth = function (dir) {
+          curMonth += dir;
+          if (curMonth > 11) { curMonth = 0; curYear++; }
+          if (curMonth < 0) { curMonth = 11; curYear--; }
+          renderCalendar();
+        };
+
+        window.updateGuests = function (dir) {
+          guests = Math.max(1, Math.min(10, guests + dir));
+          document.getElementById("guest-count").textContent = guests;
+        };
+
+        renderCalendar();
+      })();
     </script>
   </body>
 </html>
