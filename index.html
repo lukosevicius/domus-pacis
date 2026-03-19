@@ -188,50 +188,87 @@
       </section>
       <!-- About Text Section -->
     </main>
-    <section class="my-20 bg-white py-16 shadow-sm">
+    <section class="bg-white py-16" id="about">
       <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
-        <h2
-          class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight"
-        >
-          Namai piligrimams Kaune
-        </h2>
-        <div
-          class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
-        >
-          <p>
-            <strong class="text-on-surface">&#8222;Domus Pacis&#8220;</strong>
-            namai piligrimams &#303;sik&#363;r&#281; pa&#269;iame Kauno miesto
-            centre, senamiestyje. &#352;alia yra Santakos parkas, kuriame galima
-            ramiai pasivaikš&#269;ioti. &#302;rengta vaik&#371;
-            &#382;aidim&#371; aikštel&#279;. P&#279;š&#269;iomis galima
-            aplankyti senamiestį, miesto &#303;&#382;ymybes. Vie&#353;uoju
-            transportu lengvai pasiekiama bet kuri miesto dalis. Sve&#269;iai
-            nemokamai naudojasi saugoma automobili&#371; stov&#279;jimo
-            aik&#353;tele.
-          </p>
-          <p>
-            Piligrimams si&#363;loma apsistoti 17 kambari&#371;. Galima rinktis:
-            vienvie&#269;ius, dvivie&#269;ius, trivie&#269;ius ar
-            keturvie&#269;ius kambarius. Kiekviename kambaryje yra wc,
-            du&#353;as, &#353;viesolaidinis interneto ry&#353;ys. Galimyb&#279;
-            u&#382;sisakyti pusry&#269;ius, pietus bei vakarien&#281;.
-            Ketvirtame auk&#353;te &#303;rengta virtuv&#279;, sve&#269;iai gali
-            maist&#261; gamintis ir patys.
-          </p>
-          <p>Veikia 90 viet&#371; konferencij&#371; sal&#279;.</p>
-          <p>
-            &#381;od&#382;iai &#8222;Domus Pacis&#8220; rei&#353;kia
-            &#8222;Taikos, ramyb&#279;s namai&#8220; &#8211; tai atspindi
-            piligrim&#371; nam&#371; filosofij&#261;. Namai piligrimams yra
-            &#303;sik&#363;r&#281; pranci&#353;kon&#371; vienuolyno
-            teritorijoje, senoviniame pastat&#371; komplekse.
-          </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <!-- Photo grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <img
+                alt="Interjero vaizdas"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/interior/1.jpg"
+                onclick="openLightbox(this.src)"
+              />
+              <img
+                alt="Vienuolyno vaizdas"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/church/1.jpg"
+                onclick="openLightbox(this.src)"
+              />
+            </div>
+            <div class="space-y-4 pt-12">
+              <img
+                alt="Vienuolyno kiemas"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/monastery/1.jpg"
+                onclick="openLightbox(this.src)"
+              />
+              <img
+                alt="Kambarys"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/rooms/1.jpg"
+                onclick="openLightbox(this.src)"
+              />
+            </div>
+          </div>
+          <!-- Text content -->
+          <div>
+            <h2
+              class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight"
+            >
+              Namai piligrimams Kaune
+            </h2>
+            <div
+              class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
+            >
+              <p>
+                <strong class="text-on-surface">&#8222;Domus Pacis&#8220;</strong>
+                namai piligrimams &#303;sik&#363;r&#281; pa&#269;iame Kauno miesto
+                centre, senamiestyje. &#352;alia yra Santakos parkas, kuriame galima
+                ramiai pasivaikš&#269;ioti. &#302;rengta vaik&#371;
+                &#382;aidim&#371; aikštel&#279;. P&#279;š&#269;iomis galima
+                aplankyti senamiestį, miesto &#303;&#382;ymybes. Vie&#353;uoju
+                transportu lengvai pasiekiama bet kuri miesto dalis. Sve&#269;iai
+                nemokamai naudojasi saugoma automobili&#371; stov&#279;jimo
+                aik&#353;tele.
+              </p>
+              <p>
+                Piligrimams si&#363;loma apsistoti 17 kambari&#371;. Galima rinktis:
+                vienvie&#269;ius, dvivie&#269;ius, trivie&#269;ius ar
+                keturvie&#269;ius kambarius. Kiekviename kambaryje yra wc,
+                du&#353;as, &#353;viesolaidinis interneto ry&#353;ys. Galimyb&#279;
+                u&#382;sisakyti pusry&#269;ius, pietus bei vakarien&#281;.
+                Ketvirtame auk&#353;te &#303;rengta virtuv&#279;, sve&#269;iai gali
+                maist&#261; gamintis ir patys.
+              </p>
+              <p>Veikia 90 viet&#371; konferencij&#371; sal&#279;.</p>
+              <p>
+                &#381;od&#382;iai &#8222;Domus Pacis&#8220; rei&#353;kia
+                &#8222;Taikos, ramyb&#279;s namai&#8220; &#8211; tai atspindi
+                piligrim&#371; nam&#371; filosofij&#261;. Namai piligrimams yra
+                &#303;sik&#363;r&#281; pranci&#353;kon&#371; vienuolyno
+                teritorijoje, senoviniame pastat&#371; komplekse.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <main class="max-w-[1100px] mx-auto px-6 lg:px-0">
-      <!-- Reservation Section -->
-      <section class="my-20 bg-surface-container-low p-8 md:p-12 rounded-2xl">
+    <!-- Reservation Section -->
+    <section class="bg-white py-16">
+      <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
+        <div class="bg-surface-container-low p-8 md:p-12 rounded-2xl">
         <div class="text-center mb-10">
           <span
             class="font-label text-xs tracking-widest uppercase text-primary font-bold"
@@ -282,89 +319,29 @@
             </button>
           </div>
         </form>
-      </section>
-      <!-- About Section -->
-      <section class="my-32" id="about">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <div class="order-2 md:order-1 flex grid grid-cols-2 gap-4">
-            <div class="space-y-4">
-              <img
-                alt="Interjero vaizdas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/interior/1.jpg"
-                onclick="openLightbox(this.src)"
-              />
-              <img
-                alt="Vienuolyno vaizdas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/church/1.jpg"
-                onclick="openLightbox(this.src)"
-              />
-            </div>
-            <div class="space-y-4 pt-12">
-              <img
-                alt="Vienuolyno kiemas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/monastery/1.jpg"
-                onclick="openLightbox(this.src)"
-              />
-              <img
-                alt="Kambarys"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/rooms/1.jpg"
-                onclick="openLightbox(this.src)"
-              />
-            </div>
-          </div>
-          <div class="order-1 md:order-2">
-            <span
-              class="font-label text-xs tracking-widest uppercase text-primary font-bold"
-              >M&#363;s&#371; filosofija</span
-            >
-            <h2 class="font-headline text-4xl md:text-5xl my-6 leading-tight">
-              Namai piligrimams Kaune.
-            </h2>
-            <p class="font-body text-on-surface-variant leading-relaxed mb-6">
-              &#8222;Domus Pacis&#8220; rei&#353;kia &#8222;Taikos, ramyb&#279;s
-              namai&#8220; &#8211; tai atspindi piligrim&#371; nam&#371;
-              filosofij&#261;. Namai piligrimams yra &#303;sik&#363;r&#281;
-              pranci&#353;kon&#371; vienuolyno teritorijoje, senoviniame
-              pastat&#371; komplekse.
-            </p>
-            <ul class="space-y-4 font-body">
-              <li class="flex items-center gap-3 text-on-surface">
-                <span
-                  class="material-symbols-outlined text-primary"
-                  data-icon="check_circle"
-                  >check_circle</span
-                >
-                17 kambari&#371; su nuosavu sanitariniu mazgu
-              </li>
-              <li class="flex items-center gap-3 text-on-surface">
-                <span
-                  class="material-symbols-outlined text-primary"
-                  data-icon="check_circle"
-                  >check_circle</span
-                >
-                Galimyb&#279; u&#382;sisakyti maitinimo paslaugas
-              </li>
-              <li class="flex items-center gap-3 text-on-surface">
-                <span
-                  class="material-symbols-outlined text-primary"
-                  data-icon="check_circle"
-                  >check_circle</span
-                >
-                Dvasin&#279; pagalba ir maldos erdv&#279;s
-              </li>
-              <li class="flex items-center gap-3 text-on-surface">
-                <span
-                  class="material-symbols-outlined text-primary"
-                  data-icon="check_circle"
-                  >check_circle</span
-                >
-                Kauno miesto senamiestyje
-              </li>
-            </ul>
+        </div>
+      </div>
+    </section>
+    <main class="max-w-[1100px] mx-auto px-6 lg:px-0">
+      <!-- Guest Notice Section -->
+      <section class="my-20 bg-surface-container-low border border-outline-variant/30 rounded-2xl p-8 md:p-12">
+        <div class="mb-6">
+          <span class="inline-block bg-primary text-on-primary font-headline text-xl md:text-2xl font-bold px-5 py-2 tracking-wide uppercase">SVE&#268;I&#370; D&#278;MESIUI</span>
+        </div>
+        <div class="font-body text-on-surface text-base leading-relaxed space-y-5">
+          <p>
+            <strong>&#8222;Domus Pacis&#8220;</strong> yra pranci&#353;kon&#371; namai, skirti apsistoti piligrimams. Nor&#279;dami rezervuoti viet&#261;, <a href="#contacts" class="text-primary font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity">susisiekite su mumis</a> ir prane&#353;kite kelion&#279;s tiksl&#261; bei ketinamas aplankyti vietas. Apsistoti gali tiek pavieniai asmenys, tiek grup&#279;s.
+          </p>
+          <p>
+            Vienuolyno koply&#269;ioje broliai meld&#382;iasi u&#382; J&#363;s&#371; brangius mirusiuosius, aukodami gedulingas laidotuvi&#371;, devintin&#371;, trisde&#353;imtini&#371;, metini&#371; &#353;v. Mi&#353;ias. Po &#353;v. Mi&#353;i&#371;, vienuolyne, organizuojami gedulingi piet&#363;s. Broli&#371; telefonai nurodyti &#382;emiau. D&#279;l geduling&#371; piet&#371; kreiptis &#303; administatori&#371; Vytaut&#261;.
+          </p>
+          <p>
+            <strong>Kvie&#269;iame Jus organizuoti rekolekcijas &#8222;Domus Pacis&#8220; piligrim&#371; namuose.</strong> Rekolekcijas pravesti gali J&#363;s&#371; pasirinktas ved&#279;jas arba broliai pranci&#353;konai.
+          </p>
+          <div class="pt-2 space-y-1 text-on-surface-variant">
+            <p>br. Tomas <a href="tel:+37068733647" class="text-primary hover:underline">+37068733647</a></p>
+            <p>br. Bernardas <a href="tel:+37068263945" class="text-primary hover:underline">+37068263945</a></p>
+            <p>D&#279;l rezervacijos kreiptis: administratorius Vytautas <a href="tel:+37068247794" class="text-primary hover:underline">+37068247794</a></p>
           </div>
         </div>
       </section>
