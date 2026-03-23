@@ -135,11 +135,13 @@
             >Kontaktai</a
           >
         </div>
-        <button
-          class="bg-primary hover:opacity-80 transition-opacity duration-300 text-on-primary px-6 py-2 rounded-lg scale-95 active:scale-90 font-medium"
+        <a
+          href="#reservation"
+          onclick="event.preventDefault(); document.getElementById('reservation').scrollIntoView({ behavior: 'smooth', block: 'center' });"
+          class="bg-primary hover:opacity-80 transition-opacity duration-300 text-on-primary px-6 py-2 rounded-lg scale-95 active:scale-90 font-medium inline-block"
         >
           Rezervuoti
-        </button>
+        </a>
       </div>
     </nav>
     <!-- Hero Section -->
