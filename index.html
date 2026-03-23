@@ -235,13 +235,15 @@
                 alt="Interjero vaizdas"
                 class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
                 src="./images/interior/1.jpg"
-                onclick="openLightbox(this.src)"
+                onclick="openLightbox(0)"
+                data-gallery="about"
               />
               <img
                 alt="Vienuolyno vaizdas"
                 class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
                 src="./images/church/1.jpg"
-                onclick="openLightbox(this.src)"
+                onclick="openLightbox(1)"
+                data-gallery="about"
               />
             </div>
             <div class="space-y-4 pt-12">
@@ -249,13 +251,15 @@
                 alt="Vienuolyno kiemas"
                 class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
                 src="./images/monastery/1.jpg"
-                onclick="openLightbox(this.src)"
+                onclick="openLightbox(2)"
+                data-gallery="about"
               />
               <img
                 alt="Kambarys"
                 class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
                 src="./images/rooms/1.jpg"
-                onclick="openLightbox(this.src)"
+                onclick="openLightbox(3)"
+                data-gallery="about"
               />
             </div>
           </div>
@@ -582,35 +586,74 @@
       onclick="closeLightbox()"
     >
       <button
-        class="absolute top-6 right-6 text-white text-4xl leading-none hover:opacity-70 transition-opacity"
+        class="absolute top-6 right-6 text-white text-4xl leading-none hover:opacity-70 transition-opacity z-10"
         onclick="closeLightbox()"
       >
         &times;
+      </button>
+      <!-- Prev arrow -->
+      <button
+        id="lightbox-prev"
+        class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white text-2xl z-10"
+        onclick="event.stopPropagation(); lightboxNav(-1);"
+      >
+        <span class="material-symbols-outlined text-3xl">chevron_left</span>
+      </button>
+      <!-- Next arrow -->
+      <button
+        id="lightbox-next"
+        class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white text-2xl z-10"
+        onclick="event.stopPropagation(); lightboxNav(1);"
+      >
+        <span class="material-symbols-outlined text-3xl">chevron_right</span>
       </button>
       <img
         id="lightbox-img"
         class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
         src=""
         alt=""
+        onclick="event.stopPropagation();"
       />
+      <!-- Counter -->
+      <div id="lightbox-counter" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 font-body text-sm"></div>
     </div>
     <script>
-      function openLightbox(src) {
-        const lb = document.getElementById("lightbox");
-        document.getElementById("lightbox-img").src = src;
-        lb.classList.remove("hidden");
-        lb.classList.add("flex");
-        document.body.style.overflow = "hidden";
-      }
-      function closeLightbox() {
-        const lb = document.getElementById("lightbox");
-        lb.classList.add("hidden");
-        lb.classList.remove("flex");
-        document.body.style.overflow = "";
-      }
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeLightbox();
-      });
+      (function() {
+        let galleryImages = [];
+        let currentIndex = 0;
+
+        // Collect gallery images
+        galleryImages = Array.from(document.querySelectorAll('[data-gallery="about"]')).map(img => img.src);
+
+        window.openLightbox = function(index) {
+          currentIndex = index;
+          const lb = document.getElementById("lightbox");
+          document.getElementById("lightbox-img").src = galleryImages[currentIndex];
+          document.getElementById("lightbox-counter").textContent = (currentIndex + 1) + " / " + galleryImages.length;
+          lb.classList.remove("hidden");
+          lb.classList.add("flex");
+          document.body.style.overflow = "hidden";
+        };
+
+        window.closeLightbox = function() {
+          const lb = document.getElementById("lightbox");
+          lb.classList.add("hidden");
+          lb.classList.remove("flex");
+          document.body.style.overflow = "";
+        };
+
+        window.lightboxNav = function(dir) {
+          currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
+          document.getElementById("lightbox-img").src = galleryImages[currentIndex];
+          document.getElementById("lightbox-counter").textContent = (currentIndex + 1) + " / " + galleryImages.length;
+        };
+
+        document.addEventListener("keydown", function(e) {
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") lightboxNav(-1);
+          if (e.key === "ArrowRight") lightboxNav(1);
+        });
+      })();
     </script>
     <script>
       (function () {
