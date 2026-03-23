@@ -110,8 +110,16 @@
         class="max-w-[1100px] mx-auto px-6 h-20 flex items-center justify-between"
       >
         <a href="#" class="flex items-center gap-1">
-          <img src="./images/logo/logo-1.png" alt="Domus Pacis" class="h-8 md:h-12" />
-          <img src="./images/logo/logo-2.png" alt="Domus Pacis" class="h-[1.2rem] md:h-10" />
+          <img
+            src="./images/logo/logo-1.png"
+            alt="Domus Pacis"
+            class="h-8 md:h-12"
+          />
+          <img
+            src="./images/logo/logo-2.png"
+            alt="Domus Pacis"
+            class="h-[1.2rem] md:h-10"
+          />
         </a>
         <div class="hidden md:flex items-center gap-8">
           <a
@@ -240,84 +248,78 @@
     </section>
     <section class="bg-white pt-12 md:pt-24 pb-8" id="about">
       <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          <!-- Text content -->
-          <div>
-            <h2
-              class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight"
+        <h2
+          class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight"
+        >
+          Namai piligrimams Kaune
+        </h2>
+        <div class="font-body text-on-surface-variant text-lg leading-relaxed">
+          <!-- Photo slideshow floated right -->
+          <div
+            class="relative rounded-2xl overflow-hidden shadow-lg float-none md:float-right md:ml-10 mb-8 w-full md:w-[55%] aspect-[4/3]"
+            id="about-slideshow"
+          >
+            <img
+              id="slideshow-img"
+              alt="Domus Pacis"
+              class="w-full h-full object-cover transition-opacity duration-700 cursor-pointer"
+              src="./images/monastery/3.jpg"
+              data-gallery="about"
+              onclick="openLightbox(currentSlide)"
+            />
+            <!-- Prev -->
+            <button
+              onclick="slideNav(-1)"
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/30 hover:bg-white/60 backdrop-blur-sm transition-colors text-white"
             >
-              Namai piligrimams Kaune
-            </h2>
+              <span class="material-symbols-outlined text-2xl"
+                >chevron_left</span
+              >
+            </button>
+            <!-- Next -->
+            <button
+              onclick="slideNav(1)"
+              class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/30 hover:bg-white/60 backdrop-blur-sm transition-colors text-white"
+            >
+              <span class="material-symbols-outlined text-2xl"
+                >chevron_right</span
+              >
+            </button>
+            <!-- Dots -->
             <div
-              class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
-            >
-              <p>
-                <strong class="text-on-surface"
-                  >&#8222;Domus Pacis&#8220;</strong
-                >
-                namai piligrimams &#303;sik&#363;r&#281; pa&#269;iame Kauno
-                miesto centre, senamiestyje. &#352;alia yra Santakos parkas,
-                kuriame galima ramiai pasivaikš&#269;ioti. &#302;rengta
-                vaik&#371; &#382;aidim&#371; aikštel&#279;. P&#279;š&#269;iomis
-                galima aplankyti senamiestį, miesto &#303;&#382;ymybes.
-                Vie&#353;uoju transportu lengvai pasiekiama bet kuri miesto
-                dalis. Sve&#269;iai nemokamai naudojasi saugoma automobili&#371;
-                stov&#279;jimo aik&#353;tele.
-              </p>
-              <p>
-                Piligrimams si&#363;loma apsistoti 17 kambari&#371;. Galima
-                rinktis: vienvie&#269;ius, dvivie&#269;ius, trivie&#269;ius ar
-                keturvie&#269;ius kambarius. Kiekviename kambaryje yra wc,
-                du&#353;as, &#353;viesolaidinis interneto ry&#353;ys.
-                Galimyb&#279; u&#382;sisakyti pusry&#269;ius, pietus bei
-                vakarien&#281;. Ketvirtame auk&#353;te &#303;rengta
-                virtuv&#279;, sve&#269;iai gali maist&#261; gamintis ir patys.
-              </p>
-              <p>Veikia 90 viet&#371; konferencij&#371; sal&#279;.</p>
-              <p>
-                &#381;od&#382;iai &#8222;Domus Pacis&#8220; rei&#353;kia
-                &#8222;Taikos, ramyb&#279;s namai&#8220; &#8211; tai atspindi
-                piligrim&#371; nam&#371; filosofij&#261;. Namai piligrimams yra
-                &#303;sik&#363;r&#281; pranci&#353;kon&#371; vienuolyno
-                teritorijoje, senoviniame pastat&#371; komplekse.
-              </p>
-            </div>
+              class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"
+              id="slideshow-dots"
+            ></div>
           </div>
-          <!-- Photo grid -->
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-4">
-              <img
-                alt="Interjero vaizdas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/blocks/1.webp"
-                onclick="openLightbox(0)"
-                data-gallery="about"
-              />
-              <img
-                alt="Vienuolyno vaizdas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/church/1.jpg"
-                onclick="openLightbox(1)"
-                data-gallery="about"
-              />
-            </div>
-            <div class="space-y-4 pt-12">
-              <img
-                alt="Vienuolyno kiemas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/monastery/1.jpg"
-                onclick="openLightbox(2)"
-                data-gallery="about"
-              />
-              <img
-                alt="Kambarys"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/monastery/3.jpg"
-                onclick="openLightbox(3)"
-                data-gallery="about"
-              />
-            </div>
-          </div>
+          <p class="mb-6">
+            <strong class="text-on-surface">&#8222;Domus Pacis&#8220;</strong>
+            namai piligrimams &#303;sik&#363;r&#281; pa&#269;iame Kauno miesto
+            centre, senamiestyje. &#352;alia yra Santakos parkas, kuriame galima
+            ramiai pasivaikš&#269;ioti. &#302;rengta vaik&#371;
+            &#382;aidim&#371; aikštel&#279;. P&#279;š&#269;iomis galima
+            aplankyti senamiestį, miesto &#303;&#382;ymybes. Vie&#353;uoju
+            transportu lengvai pasiekiama bet kuri miesto dalis. Sve&#269;iai
+            nemokamai naudojasi saugoma automobili&#371; stov&#279;jimo
+            aik&#353;tele.
+          </p>
+          <p class="mb-6">
+            Piligrimams si&#363;loma apsistoti 17 kambari&#371;. Galima rinktis:
+            vienvie&#269;ius, dvivie&#269;ius, trivie&#269;ius ar
+            keturvie&#269;ius kambarius. Kiekviename kambaryje yra wc,
+            du&#353;as, &#353;viesolaidinis interneto ry&#353;ys. Galimyb&#279;
+            u&#382;sisakyti pusry&#269;ius, pietus bei vakarien&#281;.
+            Ketvirtame auk&#353;te &#303;rengta virtuv&#279;, sve&#269;iai gali
+            maist&#261; gamintis ir patys.
+          </p>
+          <p class="mb-6">Veikia 90 viet&#371; konferencij&#371; sal&#279;.</p>
+          <p class="mb-6">
+            &#381;od&#382;iai &#8222;Domus Pacis&#8220; rei&#353;kia
+            &#8222;Taikos, ramyb&#279;s namai&#8220; &#8211; tai atspindi
+            piligrim&#371; nam&#371; filosofij&#261;. Namai piligrimams yra
+            &#303;sik&#363;r&#281; pranci&#353;kon&#371; vienuolyno
+            teritorijoje, senoviniame pastat&#371; komplekse.
+          </p>
+          <div class="clear-both"></div>
         </div>
       </div>
     </section>
@@ -413,10 +415,16 @@
               class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
             >
               <p>
-                <strong class="text-on-surface">&#8222;Domus Pacis&#8220;</strong>
+                <strong class="text-on-surface"
+                  >&#8222;Domus Pacis&#8220;</strong
+                >
                 yra pranci&#353;kon&#371; namai, skirti apsistoti piligrimams.
                 Nor&#279;dami rezervuoti viet&#261;,
-                <a href="#contacts" class="text-primary font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity">susisiekite su mumis</a>
+                <a
+                  href="#contacts"
+                  class="text-primary font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity"
+                  >susisiekite su mumis</a
+                >
                 ir prane&#353;kite kelion&#279;s tiksl&#261; bei ketinamas
                 aplankyti vietas. Apsistoti gali tiek pavieniai asmenys, tiek
                 grup&#279;s.
@@ -431,14 +439,38 @@
                 piet&#371; kreiptis &#303; administatori&#371; Vytaut&#261;.
               </p>
               <p>
-                <strong class="text-on-surface">Kvie&#269;iame Jus organizuoti rekolekcijas &#8222;Domus Pacis&#8220; piligrim&#371; namuose.</strong>
+                <strong class="text-on-surface"
+                  >Kvie&#269;iame Jus organizuoti rekolekcijas &#8222;Domus
+                  Pacis&#8220; piligrim&#371; namuose.</strong
+                >
                 Rekolekcijas pravesti gali J&#363;s&#371; pasirinktas
                 ved&#279;jas arba broliai pranci&#353;konai.
               </p>
               <div class="pt-2 space-y-1">
-                <p>br. Tomas <a href="tel:+37068733647" class="text-primary hover:underline">+37068733647</a></p>
-                <p>br. Bernardas <a href="tel:+37068263945" class="text-primary hover:underline">+37068263945</a></p>
-                <p>D&#279;l rezervacijos kreiptis: administratorius Vytautas <a href="tel:+37068247794" class="text-primary hover:underline">+37068247794</a></p>
+                <p>
+                  br. Tomas
+                  <a
+                    href="tel:+37068733647"
+                    class="text-primary hover:underline"
+                    >+37068733647</a
+                  >
+                </p>
+                <p>
+                  br. Bernardas
+                  <a
+                    href="tel:+37068263945"
+                    class="text-primary hover:underline"
+                    >+37068263945</a
+                  >
+                </p>
+                <p>
+                  D&#279;l rezervacijos kreiptis: administratorius Vytautas
+                  <a
+                    href="tel:+37068247794"
+                    class="text-primary hover:underline"
+                    >+37068247794</a
+                  >
+                </p>
               </div>
             </div>
           </div>
@@ -768,13 +800,61 @@
     </div>
     <script>
       (function () {
-        let galleryImages = [];
-        let currentIndex = 0;
+        // Slideshow images
+        const slideImages = [
+          "./images/monastery/3.jpg",
+          "./images/monastery/1.jpg",
+          "./images/church/1.jpg",
+        ];
+        window.currentSlide = 0;
+        let slideTimer;
+        const slideshowImg = document.getElementById("slideshow-img");
+        const dotsContainer = document.getElementById("slideshow-dots");
 
-        // Collect gallery images
-        galleryImages = Array.from(
-          document.querySelectorAll('[data-gallery="about"]'),
-        ).map((img) => img.src);
+        // Create dots
+        slideImages.forEach((_, i) => {
+          const dot = document.createElement("button");
+          dot.className =
+            "w-2.5 h-2.5 rounded-full transition-all duration-300 " +
+            (i === 0 ? "bg-white scale-110" : "bg-white/50");
+          dot.onclick = () => goToSlide(i);
+          dotsContainer.appendChild(dot);
+        });
+
+        function updateDots() {
+          dotsContainer.querySelectorAll("button").forEach((dot, i) => {
+            dot.className =
+              "w-2.5 h-2.5 rounded-full transition-all duration-300 " +
+              (i === currentSlide ? "bg-white scale-110" : "bg-white/50");
+          });
+        }
+
+        function goToSlide(index) {
+          slideshowImg.style.opacity = "0";
+          setTimeout(() => {
+            currentSlide = index;
+            slideshowImg.src = slideImages[currentSlide];
+            slideshowImg.style.opacity = "1";
+            updateDots();
+          }, 350);
+          resetTimer();
+        }
+
+        window.slideNav = function (dir) {
+          goToSlide(
+            (currentSlide + dir + slideImages.length) % slideImages.length,
+          );
+        };
+
+        function resetTimer() {
+          clearInterval(slideTimer);
+          slideTimer = setInterval(() => slideNav(1), 5000);
+        }
+        resetTimer();
+
+        // Lightbox uses same images
+        let galleryImages = slideImages;
+        let currentIndex = 0;
 
         window.openLightbox = function (index) {
           currentIndex = index;
