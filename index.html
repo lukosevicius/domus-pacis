@@ -110,8 +110,8 @@
         class="max-w-[1100px] mx-auto px-6 h-20 flex items-center justify-between"
       >
         <a href="#" class="flex items-center gap-1">
-          <img src="./images/logo/logo-1.png" alt="Domus Pacis" class="h-12" />
-          <img src="./images/logo/logo-2.png" alt="Domus Pacis" class="h-10" />
+          <img src="./images/logo/logo-1.png" alt="Domus Pacis" class="h-8 md:h-12" />
+          <img src="./images/logo/logo-2.png" alt="Domus Pacis" class="h-[1.2rem] md:h-10" />
         </a>
         <div class="hidden md:flex items-center gap-8">
           <a
@@ -241,41 +241,6 @@
     <section class="bg-white py-16" id="about">
       <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          <!-- Photo grid -->
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-4">
-              <img
-                alt="Interjero vaizdas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/blocks/1.webp"
-                onclick="openLightbox(0)"
-                data-gallery="about"
-              />
-              <img
-                alt="Vienuolyno vaizdas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/church/1.jpg"
-                onclick="openLightbox(1)"
-                data-gallery="about"
-              />
-            </div>
-            <div class="space-y-4 pt-12">
-              <img
-                alt="Vienuolyno kiemas"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/monastery/1.jpg"
-                onclick="openLightbox(2)"
-                data-gallery="about"
-              />
-              <img
-                alt="Kambarys"
-                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
-                src="./images/monastery/3.jpg"
-                onclick="openLightbox(3)"
-                data-gallery="about"
-              />
-            </div>
-          </div>
           <!-- Text content -->
           <div>
             <h2
@@ -318,88 +283,40 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- Guest Notice Section -->
-    <section class="bg-white py-16">
-      <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2
-              class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight"
-            >
-              Sve&#269;i&#371; d&#279;mesiui
-            </h2>
-            <div
-              class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
-            >
-              <p>
-                <strong class="text-on-surface"
-                  >&#8222;Domus Pacis&#8220;</strong
-                >
-                yra pranci&#353;kon&#371; namai, skirti apsistoti piligrimams.
-                Nor&#279;dami rezervuoti viet&#261;,
-                <a
-                  href="#contacts"
-                  class="text-primary font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity"
-                  >susisiekite su mumis</a
-                >
-                ir prane&#353;kite kelion&#279;s tiksl&#261; bei ketinamas
-                aplankyti vietas. Apsistoti gali tiek pavieniai asmenys, tiek
-                grup&#279;s.
-              </p>
-              <p>
-                Vienuolyno koply&#269;ioje broliai meld&#382;iasi u&#382;
-                J&#363;s&#371; brangius mirusiuosius, aukodami gedulingas
-                laidotuvi&#371;, devintin&#371;, trisde&#353;imtini&#371;,
-                metini&#371; &#353;v. Mi&#353;ias. Po &#353;v. Mi&#353;i&#371;,
-                vienuolyne, organizuojami gedulingi piet&#363;s. Broli&#371;
-                telefonai nurodyti &#382;emiau. D&#279;l geduling&#371;
-                piet&#371; kreiptis &#303; administatori&#371; Vytaut&#261;.
-              </p>
-              <p>
-                <strong class="text-on-surface"
-                  >Kvie&#269;iame Jus organizuoti rekolekcijas &#8222;Domus
-                  Pacis&#8220; piligrim&#371; namuose.</strong
-                >
-                Rekolekcijas pravesti gali J&#363;s&#371; pasirinktas
-                ved&#279;jas arba broliai pranci&#353;konai.
-              </p>
-              <div class="pt-2 space-y-1">
-                <p>
-                  br. Tomas
-                  <a
-                    href="tel:+37068733647"
-                    class="text-primary hover:underline"
-                    >+37068733647</a
-                  >
-                </p>
-                <p>
-                  br. Bernardas
-                  <a
-                    href="tel:+37068263945"
-                    class="text-primary hover:underline"
-                    >+37068263945</a
-                  >
-                </p>
-                <p>
-                  D&#279;l rezervacijos kreiptis: administratorius Vytautas
-                  <a
-                    href="tel:+37068247794"
-                    class="text-primary hover:underline"
-                    >+37068247794</a
-                  >
-                </p>
-              </div>
+          <!-- Photo grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <img
+                alt="Interjero vaizdas"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/blocks/1.webp"
+                onclick="openLightbox(0)"
+                data-gallery="about"
+              />
+              <img
+                alt="Vienuolyno vaizdas"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/church/1.jpg"
+                onclick="openLightbox(1)"
+                data-gallery="about"
+              />
             </div>
-          </div>
-          <div>
-            <img
-              alt="Vienuolynas"
-              class="rounded-2xl shadow-xl w-full object-cover"
-              src="./images/monastery/4.jpg"
-            />
+            <div class="space-y-4 pt-12">
+              <img
+                alt="Vienuolyno kiemas"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/monastery/1.jpg"
+                onclick="openLightbox(2)"
+                data-gallery="about"
+              />
+              <img
+                alt="Kambarys"
+                class="rounded-xl w-full aspect-square object-cover shadow-md cursor-pointer hover:opacity-90 transition-opacity"
+                src="./images/monastery/3.jpg"
+                onclick="openLightbox(3)"
+                data-gallery="about"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -478,6 +395,59 @@
                 >
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Guest Notice Section -->
+    <section class="bg-white py-16">
+      <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2
+              class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight"
+            >
+              Sve&#269;i&#371; d&#279;mesiui
+            </h2>
+            <div
+              class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
+            >
+              <p>
+                <strong class="text-on-surface">&#8222;Domus Pacis&#8220;</strong>
+                yra pranci&#353;kon&#371; namai, skirti apsistoti piligrimams.
+                Nor&#279;dami rezervuoti viet&#261;,
+                <a href="#contacts" class="text-primary font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity">susisiekite su mumis</a>
+                ir prane&#353;kite kelion&#279;s tiksl&#261; bei ketinamas
+                aplankyti vietas. Apsistoti gali tiek pavieniai asmenys, tiek
+                grup&#279;s.
+              </p>
+              <p>
+                Vienuolyno koply&#269;ioje broliai meld&#382;iasi u&#382;
+                J&#363;s&#371; brangius mirusiuosius, aukodami gedulingas
+                laidotuvi&#371;, devintin&#371;, trisde&#353;imtini&#371;,
+                metini&#371; &#353;v. Mi&#353;ias. Po &#353;v. Mi&#353;i&#371;,
+                vienuolyne, organizuojami gedulingi piet&#363;s. Broli&#371;
+                telefonai nurodyti &#382;emiau. D&#279;l geduling&#371;
+                piet&#371; kreiptis &#303; administatori&#371; Vytaut&#261;.
+              </p>
+              <p>
+                <strong class="text-on-surface">Kvie&#269;iame Jus organizuoti rekolekcijas &#8222;Domus Pacis&#8220; piligrim&#371; namuose.</strong>
+                Rekolekcijas pravesti gali J&#363;s&#371; pasirinktas
+                ved&#279;jas arba broliai pranci&#353;konai.
+              </p>
+              <div class="pt-2 space-y-1">
+                <p>br. Tomas <a href="tel:+37068733647" class="text-primary hover:underline">+37068733647</a></p>
+                <p>br. Bernardas <a href="tel:+37068263945" class="text-primary hover:underline">+37068263945</a></p>
+                <p>D&#279;l rezervacijos kreiptis: administratorius Vytautas <a href="tel:+37068247794" class="text-primary hover:underline">+37068247794</a></p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img
+              alt="Vienuolynas"
+              class="rounded-2xl shadow-xl w-full object-cover"
+              src="./images/monastery/4.jpg"
+            />
           </div>
         </div>
       </div>
