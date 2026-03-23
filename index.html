@@ -32,7 +32,7 @@
               "on-secondary-container": "#7a4f41",
               "surface-container-low": "#faf3e9",
               "surface-container-lowest": "#ffffff",
-              primary: "#914529",
+              primary: "#785d44",
               "on-secondary": "#ffffff",
               "surface-bright": "#fff8f0",
               "secondary-fixed-dim": "#f3b9a7",
@@ -137,7 +137,12 @@
         </div>
         <a
           href="#reservation"
-          onclick="event.preventDefault(); document.getElementById('reservation').scrollIntoView({ behavior: 'smooth', block: 'center' });"
+          onclick="
+            event.preventDefault();
+            document
+              .getElementById('reservation')
+              .scrollIntoView({ behavior: 'smooth', block: 'center' });
+          "
           class="bg-primary hover:opacity-80 transition-opacity duration-300 text-on-primary px-6 py-2 rounded-lg scale-95 active:scale-90 font-medium inline-block"
         >
           Rezervuoti
@@ -145,83 +150,91 @@
       </div>
     </nav>
     <!-- Hero Section -->
-    <section class="relative w-full overflow-hidden" style="min-height: 420px;">
+    <section class="relative overflow-hidden" style="min-height: 624px">
       <!-- Background image -->
       <img
         alt="Domus Pacis pastatas Kaune"
         class="absolute inset-0 w-full h-full object-cover"
-        src="./images/monastery/5.jpg"
+        src="./images/monastery/6.jpg"
       />
       <!-- Dark overlay -->
-      <div class="absolute inset-0" style="background: rgba(50, 30, 15, 0.5);"></div>
+      <div
+        class="absolute inset-0"
+        style="background: rgba(50, 30, 15, 0.3)"
+      ></div>
       <!-- Content -->
-      <div class="relative z-10 max-w-[1100px] mx-auto px-6 lg:px-0 py-20 md:py-28">
-        <h1
-          class="font-headline text-4xl md:text-6xl leading-tight text-white mb-6 tracking-tight max-w-2xl"
+      <div
+        class="relative z-10 flex flex-col items-center justify-between text-center px-6 pb-16 pt-16"
+        style="min-height: 624px"
+      >
+        <!-- Logo -->
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-6 mb-8">
+          <img
+            src="./images/logo/logo-full.png"
+            alt="Domus Pacis"
+            class="h-36 md:h-48"
+          />
+        </div>
+        <!-- Inline booking bar -->
+        <div
+          id="reservation"
+          class="flex flex-col sm:flex-row items-stretch sm:items-end gap-3 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg"
         >
-          Domus Pacis &#8211; <span class="italic">ramyb&#279;s</span> namai Kaune
-        </h1>
-        <p class="font-body text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-xl">
-          Eleganti&#353;ki piligrim&#371; namai Kauno senamiestyje, si&#363;lantys ramyb&#281; ir &#353;iuolaikin&#303; komfort&#261;.
-        </p>
-        <a
-          href="#reservation"
-          onclick="event.preventDefault(); document.getElementById('reservation').scrollIntoView({ behavior: 'smooth', block: 'center' });"
-          class="bg-primary text-on-primary px-8 py-3 rounded-xl font-medium shadow-lg hover:opacity-90 transition-all inline-block"
-        >
-          Rezervuoti kambar&#303;
-        </a>
-      </div>
-    </section>
-    <!-- Reservation Section -->
-    <section id="reservation" class="bg-white py-12">
-      <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
-        <div class="bg-surface-container-low p-6 md:p-10 rounded-2xl">
-          <div class="text-center mb-6">
-            <span class="font-label text-xs tracking-widest uppercase text-primary font-bold">Suplanuokite vizit&#261;</span>
-            <h2 class="font-headline text-3xl mt-2">Rezervacija</h2>
+          <div class="flex-1 min-w-[140px]">
+            <label
+              class="font-label text-[10px] text-stone-500 uppercase tracking-wider block mb-1"
+              >Atvykimas</label
+            >
+            <input
+              type="date"
+              id="cal-checkin"
+              class="w-full font-body text-sm text-on-surface bg-white border border-stone-200 rounded-lg px-3 py-2 focus:outline-none focus:border-primary"
+            />
           </div>
-          <div class="flex flex-col md:flex-row gap-10 items-start justify-center">
-            <!-- Calendar -->
-            <div class="w-full max-w-[420px]">
-              <div class="flex items-center justify-between mb-3">
-                <button onclick="changeMonth(-1)" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
-                  <span class="material-symbols-outlined text-xl">chevron_left</span>
-                </button>
-                <span id="cal-month" class="font-headline text-lg text-on-surface"></span>
-                <button onclick="changeMonth(1)" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
-                  <span class="material-symbols-outlined text-xl">chevron_right</span>
-                </button>
-              </div>
-              <div class="grid grid-cols-7 text-center text-xs font-label text-on-surface-variant uppercase tracking-wider mb-1">
-                <span>Pr</span><span>An</span><span>Tr</span><span>Kt</span><span>Pn</span><span>&#352;t</span><span>Sk</span>
-              </div>
-              <div id="cal-days" class="grid grid-cols-7 text-center text-sm"></div>
-            </div>
-            <!-- Sidebar controls -->
-            <div class="w-full md:w-auto flex flex-col gap-4 md:min-w-[200px]">
-              <div>
-                <label class="font-label text-xs text-on-surface-variant uppercase tracking-wider block mb-1">Atvykimas</label>
-                <div id="cal-checkin" class="font-body text-sm text-on-surface bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-3 py-2">—</div>
-              </div>
-              <div>
-                <label class="font-label text-xs text-on-surface-variant uppercase tracking-wider block mb-1">I&#353;vykimas</label>
-                <div id="cal-checkout" class="font-body text-sm text-on-surface bg-surface-container-lowest border border-outline-variant/20 rounded-lg px-3 py-2">—</div>
-              </div>
-              <div>
-                <label class="font-label text-xs text-on-surface-variant uppercase tracking-wider block mb-2">Sve&#269;i&#371; skai&#269;ius</label>
-                <div class="flex items-center gap-3">
-                  <button onclick="updateGuests(-1)" class="w-8 h-8 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors">−</button>
-                  <span id="guest-count" class="font-body text-lg font-medium w-6 text-center">1</span>
-                  <button onclick="updateGuests(1)" class="w-8 h-8 rounded-full border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors">+</button>
-                </div>
-              </div>
-              <button class="mt-2 bg-primary text-on-primary py-3 px-6 rounded-xl font-medium hover:opacity-90 transition-all flex items-center justify-center gap-2">
-                <span class="material-symbols-outlined text-xl">search</span>
-                Ie&#353;koti laisv&#371;
+          <div class="flex-1 min-w-[140px]">
+            <label
+              class="font-label text-[10px] text-stone-500 uppercase tracking-wider block mb-1"
+              >I&#353;vykimas</label
+            >
+            <input
+              type="date"
+              id="cal-checkout"
+              class="w-full font-body text-sm text-on-surface bg-white border border-stone-200 rounded-lg px-3 py-2 focus:outline-none focus:border-primary"
+            />
+          </div>
+          <div class="min-w-[100px]">
+            <label
+              class="font-label text-[10px] text-stone-500 uppercase tracking-wider block mb-1"
+              >Sve&#269;iai</label
+            >
+            <div
+              class="flex items-center gap-2 bg-white border border-stone-200 rounded-lg px-3 py-2"
+            >
+              <button
+                onclick="updateGuests(-1)"
+                class="text-stone-400 hover:text-primary transition-colors text-sm"
+              >
+                −
+              </button>
+              <span
+                id="guest-count"
+                class="font-body text-sm font-medium w-4 text-center"
+                >1</span
+              >
+              <button
+                onclick="updateGuests(1)"
+                class="text-stone-400 hover:text-primary transition-colors text-sm"
+              >
+                +
               </button>
             </div>
           </div>
+          <button
+            class="bg-primary text-on-primary py-2.5 px-6 rounded-lg font-medium hover:opacity-90 transition-all flex items-center justify-center gap-2 whitespace-nowrap"
+          >
+            <span class="material-symbols-outlined text-lg">search</span>
+            Tikrinti laisvas vietas
+          </button>
         </div>
       </div>
     </section>
@@ -274,24 +287,26 @@
               class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
             >
               <p>
-                <strong class="text-on-surface">&#8222;Domus Pacis&#8220;</strong>
-                namai piligrimams &#303;sik&#363;r&#281; pa&#269;iame Kauno miesto
-                centre, senamiestyje. &#352;alia yra Santakos parkas, kuriame galima
-                ramiai pasivaikš&#269;ioti. &#302;rengta vaik&#371;
-                &#382;aidim&#371; aikštel&#279;. P&#279;š&#269;iomis galima
-                aplankyti senamiestį, miesto &#303;&#382;ymybes. Vie&#353;uoju
-                transportu lengvai pasiekiama bet kuri miesto dalis. Sve&#269;iai
-                nemokamai naudojasi saugoma automobili&#371; stov&#279;jimo
-                aik&#353;tele.
+                <strong class="text-on-surface"
+                  >&#8222;Domus Pacis&#8220;</strong
+                >
+                namai piligrimams &#303;sik&#363;r&#281; pa&#269;iame Kauno
+                miesto centre, senamiestyje. &#352;alia yra Santakos parkas,
+                kuriame galima ramiai pasivaikš&#269;ioti. &#302;rengta
+                vaik&#371; &#382;aidim&#371; aikštel&#279;. P&#279;š&#269;iomis
+                galima aplankyti senamiestį, miesto &#303;&#382;ymybes.
+                Vie&#353;uoju transportu lengvai pasiekiama bet kuri miesto
+                dalis. Sve&#269;iai nemokamai naudojasi saugoma automobili&#371;
+                stov&#279;jimo aik&#353;tele.
               </p>
               <p>
-                Piligrimams si&#363;loma apsistoti 17 kambari&#371;. Galima rinktis:
-                vienvie&#269;ius, dvivie&#269;ius, trivie&#269;ius ar
+                Piligrimams si&#363;loma apsistoti 17 kambari&#371;. Galima
+                rinktis: vienvie&#269;ius, dvivie&#269;ius, trivie&#269;ius ar
                 keturvie&#269;ius kambarius. Kiekviename kambaryje yra wc,
-                du&#353;as, &#353;viesolaidinis interneto ry&#353;ys. Galimyb&#279;
-                u&#382;sisakyti pusry&#269;ius, pietus bei vakarien&#281;.
-                Ketvirtame auk&#353;te &#303;rengta virtuv&#279;, sve&#269;iai gali
-                maist&#261; gamintis ir patys.
+                du&#353;as, &#353;viesolaidinis interneto ry&#353;ys.
+                Galimyb&#279; u&#382;sisakyti pusry&#269;ius, pietus bei
+                vakarien&#281;. Ketvirtame auk&#353;te &#303;rengta
+                virtuv&#279;, sve&#269;iai gali maist&#261; gamintis ir patys.
               </p>
               <p>Veikia 90 viet&#371; konferencij&#371; sal&#279;.</p>
               <p>
@@ -311,21 +326,71 @@
       <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight">Sve&#269;i&#371; d&#279;mesiui</h2>
-            <div class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6">
+            <h2
+              class="font-headline text-4xl md:text-5xl text-primary mb-8 leading-tight"
+            >
+              Sve&#269;i&#371; d&#279;mesiui
+            </h2>
+            <div
+              class="font-body text-on-surface-variant text-lg leading-relaxed space-y-6"
+            >
               <p>
-                <strong class="text-on-surface">&#8222;Domus Pacis&#8220;</strong> yra pranci&#353;kon&#371; namai, skirti apsistoti piligrimams. Nor&#279;dami rezervuoti viet&#261;, <a href="#contacts" class="text-primary font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity">susisiekite su mumis</a> ir prane&#353;kite kelion&#279;s tiksl&#261; bei ketinamas aplankyti vietas. Apsistoti gali tiek pavieniai asmenys, tiek grup&#279;s.
+                <strong class="text-on-surface"
+                  >&#8222;Domus Pacis&#8220;</strong
+                >
+                yra pranci&#353;kon&#371; namai, skirti apsistoti piligrimams.
+                Nor&#279;dami rezervuoti viet&#261;,
+                <a
+                  href="#contacts"
+                  class="text-primary font-semibold underline underline-offset-4 hover:opacity-80 transition-opacity"
+                  >susisiekite su mumis</a
+                >
+                ir prane&#353;kite kelion&#279;s tiksl&#261; bei ketinamas
+                aplankyti vietas. Apsistoti gali tiek pavieniai asmenys, tiek
+                grup&#279;s.
               </p>
               <p>
-                Vienuolyno koply&#269;ioje broliai meld&#382;iasi u&#382; J&#363;s&#371; brangius mirusiuosius, aukodami gedulingas laidotuvi&#371;, devintin&#371;, trisde&#353;imtini&#371;, metini&#371; &#353;v. Mi&#353;ias. Po &#353;v. Mi&#353;i&#371;, vienuolyne, organizuojami gedulingi piet&#363;s. Broli&#371; telefonai nurodyti &#382;emiau. D&#279;l geduling&#371; piet&#371; kreiptis &#303; administatori&#371; Vytaut&#261;.
+                Vienuolyno koply&#269;ioje broliai meld&#382;iasi u&#382;
+                J&#363;s&#371; brangius mirusiuosius, aukodami gedulingas
+                laidotuvi&#371;, devintin&#371;, trisde&#353;imtini&#371;,
+                metini&#371; &#353;v. Mi&#353;ias. Po &#353;v. Mi&#353;i&#371;,
+                vienuolyne, organizuojami gedulingi piet&#363;s. Broli&#371;
+                telefonai nurodyti &#382;emiau. D&#279;l geduling&#371;
+                piet&#371; kreiptis &#303; administatori&#371; Vytaut&#261;.
               </p>
               <p>
-                <strong class="text-on-surface">Kvie&#269;iame Jus organizuoti rekolekcijas &#8222;Domus Pacis&#8220; piligrim&#371; namuose.</strong> Rekolekcijas pravesti gali J&#363;s&#371; pasirinktas ved&#279;jas arba broliai pranci&#353;konai.
+                <strong class="text-on-surface"
+                  >Kvie&#269;iame Jus organizuoti rekolekcijas &#8222;Domus
+                  Pacis&#8220; piligrim&#371; namuose.</strong
+                >
+                Rekolekcijas pravesti gali J&#363;s&#371; pasirinktas
+                ved&#279;jas arba broliai pranci&#353;konai.
               </p>
               <div class="pt-2 space-y-1">
-                <p>br. Tomas <a href="tel:+37068733647" class="text-primary hover:underline">+37068733647</a></p>
-                <p>br. Bernardas <a href="tel:+37068263945" class="text-primary hover:underline">+37068263945</a></p>
-                <p>D&#279;l rezervacijos kreiptis: administratorius Vytautas <a href="tel:+37068247794" class="text-primary hover:underline">+37068247794</a></p>
+                <p>
+                  br. Tomas
+                  <a
+                    href="tel:+37068733647"
+                    class="text-primary hover:underline"
+                    >+37068733647</a
+                  >
+                </p>
+                <p>
+                  br. Bernardas
+                  <a
+                    href="tel:+37068263945"
+                    class="text-primary hover:underline"
+                    >+37068263945</a
+                  >
+                </p>
+                <p>
+                  D&#279;l rezervacijos kreiptis: administratorius Vytautas
+                  <a
+                    href="tel:+37068247794"
+                    class="text-primary hover:underline"
+                    >+37068247794</a
+                  >
+                </p>
               </div>
             </div>
           </div>
@@ -342,7 +407,9 @@
     <!-- Conference Hall Section -->
     <section class="bg-white py-16" id="conference">
       <div class="max-w-[1100px] mx-auto px-6 lg:px-0">
-        <div class="py-20 bg-surface-container rounded-3xl overflow-hidden relative">
+        <div
+          class="py-20 bg-surface-container rounded-3xl overflow-hidden relative"
+        >
           <div
             class="absolute top-0 right-0 w-1/3 h-full bg-surface-container-high -skew-x-12 translate-x-1/2 -z-10"
           ></div>
@@ -359,9 +426,9 @@
               </h2>
               <p class="font-body text-on-surface-variant leading-relaxed mb-8">
                 Erdvi sal&#279; rekolekcijoms, seminarams ir susitikimams.
-                M&#363;s&#371; did&#382;ioji sal&#279; tinka tiek konferencijoms,
-                tiek dvasin&#279;ms rekolekcijoms. Erdv&#279; pasi&#382;ymi puikia
-                akustika ir nat&#363;ralia &#353;viesa.
+                M&#363;s&#371; did&#382;ioji sal&#279; tinka tiek
+                konferencijoms, tiek dvasin&#279;ms rekolekcijoms. Erdv&#279;
+                pasi&#382;ymi puikia akustika ir nat&#363;ralia &#353;viesa.
               </p>
               <div class="grid grid-cols-2 gap-6 mb-8">
                 <div>
@@ -471,7 +538,7 @@
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2294.5!2d23.8853!3d54.8976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e7186b2a8a3b3d%3A0x4e4d4e4d4e4d4e4d!2sPapilio%20g.%209%2C%20Kaunas!5e0!3m2!1slt!2slt!4v1700000000000!5m2!1slt!2slt"
                 width="100%"
                 height="100%"
-                style="border:0;"
+                style="border: 0"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -508,15 +575,51 @@
       <div
         class="max-w-[1100px] mx-auto px-6 py-4 flex flex-wrap items-center justify-center gap-6 md:gap-10"
       >
-        <a href="#" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Pradinis</a>
-        <a href="#" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Kambariai</a>
-        <a href="#conference" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Konf. sal&#279;</a>
-        <a href="#" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Galerija</a>
-        <a href="#" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Projektai</a>
-        <a href="#" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Parama</a>
-        <a href="#about" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Apie mus</a>
-        <a href="#contacts" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Kontaktai</a>
-        <a href="#" class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity">Rezervacija</a>
+        <a
+          href="#"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Pradinis</a
+        >
+        <a
+          href="#"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Kambariai</a
+        >
+        <a
+          href="#conference"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Konf. sal&#279;</a
+        >
+        <a
+          href="#"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Galerija</a
+        >
+        <a
+          href="#"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Projektai</a
+        >
+        <a
+          href="#"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Parama</a
+        >
+        <a
+          href="#about"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Apie mus</a
+        >
+        <a
+          href="#contacts"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Kontaktai</a
+        >
+        <a
+          href="#"
+          class="text-white text-xs font-bold uppercase tracking-widest hover:opacity-80 transition-opacity"
+          >Rezervacija</a
+        >
       </div>
     </nav>
     <!-- Footer -->
@@ -527,10 +630,20 @@
         <!-- Logo + description + facebook -->
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <img src="./images/logo/logo-1.png" alt="Domus Pacis" class="h-14" />
+            <img
+              src="./images/logo/logo-1.png"
+              alt="Domus Pacis"
+              class="h-14"
+            />
             <div>
-              <div class="font-bold text-stone-800 uppercase tracking-wide text-sm">Domus Pacis</div>
-              <div class="text-xs text-primary uppercase tracking-wider">Ramyb&#279;s namai Kaune</div>
+              <div
+                class="font-bold text-stone-800 uppercase tracking-wide text-sm"
+              >
+                Domus Pacis
+              </div>
+              <div class="text-xs text-primary uppercase tracking-wider">
+                Ramyb&#279;s namai Kaune
+              </div>
             </div>
           </div>
           <p class="text-sm text-stone-500 mb-6">
@@ -540,28 +653,75 @@
             href="#"
             class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-stone-300 text-stone-400 hover:text-primary hover:border-primary transition-colors"
           >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+              />
+            </svg>
           </a>
         </div>
         <!-- Contacts -->
         <div>
-          <h3 class="font-bold text-primary uppercase tracking-wide text-sm mb-6">Kontaktai</h3>
+          <h3
+            class="font-bold text-primary uppercase tracking-wide text-sm mb-6"
+          >
+            Kontaktai
+          </h3>
           <div class="space-y-3 text-sm text-stone-600">
             <p>Papilio g. 9, Kaunas</p>
-            <p><a href="tel:+37062048794" class="hover:text-primary transition-colors">+370 620 48794</a></p>
-            <p><a href="mailto:info@domuspacis.lt" class="hover:text-primary transition-colors">info@domuspacis.lt</a></p>
+            <p>
+              <a
+                href="tel:+37062048794"
+                class="hover:text-primary transition-colors"
+                >+370 620 48794</a
+              >
+            </p>
+            <p>
+              <a
+                href="mailto:info@domuspacis.lt"
+                class="hover:text-primary transition-colors"
+                >info@domuspacis.lt</a
+              >
+            </p>
           </div>
         </div>
         <!-- Language + EU -->
         <div>
-          <h3 class="font-bold text-primary uppercase tracking-wide text-sm mb-6">Kalba</h3>
+          <h3
+            class="font-bold text-primary uppercase tracking-wide text-sm mb-6"
+          >
+            Kalba
+          </h3>
           <div class="flex items-center gap-3 mb-8">
-            <span class="w-9 h-9 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">LT</span>
-            <a href="#" class="text-sm text-stone-500 hover:text-primary transition-colors">EN</a>
-            <a href="#" class="text-sm text-stone-500 hover:text-primary transition-colors">DE</a>
-            <a href="#" class="text-sm text-stone-500 hover:text-primary transition-colors">PL</a>
-            <a href="#" class="text-sm text-stone-500 hover:text-primary transition-colors">IT</a>
-            <a href="#" class="text-sm text-stone-500 hover:text-primary transition-colors">RU</a>
+            <span
+              class="w-9 h-9 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center"
+              >LT</span
+            >
+            <a
+              href="#"
+              class="text-sm text-stone-500 hover:text-primary transition-colors"
+              >EN</a
+            >
+            <a
+              href="#"
+              class="text-sm text-stone-500 hover:text-primary transition-colors"
+              >DE</a
+            >
+            <a
+              href="#"
+              class="text-sm text-stone-500 hover:text-primary transition-colors"
+              >PL</a
+            >
+            <a
+              href="#"
+              class="text-sm text-stone-500 hover:text-primary transition-colors"
+              >IT</a
+            >
+            <a
+              href="#"
+              class="text-sm text-stone-500 hover:text-primary transition-colors"
+              >RU</a
+            >
           </div>
           <div class="flex items-center gap-3">
             <img src="./images/es_fondai.png" alt="ES fondai" class="h-16" />
@@ -569,13 +729,23 @@
         </div>
       </div>
       <!-- Bottom bar -->
-      <div class="max-w-[1100px] mx-auto mt-12 pt-6 border-t border-stone-300 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div
+        class="max-w-[1100px] mx-auto mt-12 pt-6 border-t border-stone-300 flex flex-col md:flex-row items-center justify-between gap-4"
+      >
         <p class="text-xs text-stone-400">
           &copy; Domus Pacis. Visos teis&#279;s saugomos.
         </p>
         <div class="flex items-center gap-6">
-          <a href="#" class="text-xs text-stone-400 hover:text-primary transition-colors">Privatumo politika</a>
-          <a href="#" class="text-xs text-stone-400 hover:text-primary transition-colors">Slapuk&#371; nustatymai</a>
+          <a
+            href="#"
+            class="text-xs text-stone-400 hover:text-primary transition-colors"
+            >Privatumo politika</a
+          >
+          <a
+            href="#"
+            class="text-xs text-stone-400 hover:text-primary transition-colors"
+            >Slapuk&#371; nustatymai</a
+          >
         </div>
       </div>
     </footer>
@@ -595,7 +765,10 @@
       <button
         id="lightbox-prev"
         class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white text-2xl z-10"
-        onclick="event.stopPropagation(); lightboxNav(-1);"
+        onclick="
+          event.stopPropagation();
+          lightboxNav(-1);
+        "
       >
         <span class="material-symbols-outlined text-3xl">chevron_left</span>
       </button>
@@ -603,7 +776,10 @@
       <button
         id="lightbox-next"
         class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white text-2xl z-10"
-        onclick="event.stopPropagation(); lightboxNav(1);"
+        onclick="
+          event.stopPropagation();
+          lightboxNav(1);
+        "
       >
         <span class="material-symbols-outlined text-3xl">chevron_right</span>
       </button>
@@ -612,43 +788,53 @@
         class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
         src=""
         alt=""
-        onclick="event.stopPropagation();"
+        onclick="event.stopPropagation()"
       />
       <!-- Counter -->
-      <div id="lightbox-counter" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 font-body text-sm"></div>
+      <div
+        id="lightbox-counter"
+        class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 font-body text-sm"
+      ></div>
     </div>
     <script>
-      (function() {
+      (function () {
         let galleryImages = [];
         let currentIndex = 0;
 
         // Collect gallery images
-        galleryImages = Array.from(document.querySelectorAll('[data-gallery="about"]')).map(img => img.src);
+        galleryImages = Array.from(
+          document.querySelectorAll('[data-gallery="about"]'),
+        ).map((img) => img.src);
 
-        window.openLightbox = function(index) {
+        window.openLightbox = function (index) {
           currentIndex = index;
           const lb = document.getElementById("lightbox");
-          document.getElementById("lightbox-img").src = galleryImages[currentIndex];
-          document.getElementById("lightbox-counter").textContent = (currentIndex + 1) + " / " + galleryImages.length;
+          document.getElementById("lightbox-img").src =
+            galleryImages[currentIndex];
+          document.getElementById("lightbox-counter").textContent =
+            currentIndex + 1 + " / " + galleryImages.length;
           lb.classList.remove("hidden");
           lb.classList.add("flex");
           document.body.style.overflow = "hidden";
         };
 
-        window.closeLightbox = function() {
+        window.closeLightbox = function () {
           const lb = document.getElementById("lightbox");
           lb.classList.add("hidden");
           lb.classList.remove("flex");
           document.body.style.overflow = "";
         };
 
-        window.lightboxNav = function(dir) {
-          currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
-          document.getElementById("lightbox-img").src = galleryImages[currentIndex];
-          document.getElementById("lightbox-counter").textContent = (currentIndex + 1) + " / " + galleryImages.length;
+        window.lightboxNav = function (dir) {
+          currentIndex =
+            (currentIndex + dir + galleryImages.length) % galleryImages.length;
+          document.getElementById("lightbox-img").src =
+            galleryImages[currentIndex];
+          document.getElementById("lightbox-counter").textContent =
+            currentIndex + 1 + " / " + galleryImages.length;
         };
 
-        document.addEventListener("keydown", function(e) {
+        document.addEventListener("keydown", function (e) {
           if (e.key === "Escape") closeLightbox();
           if (e.key === "ArrowLeft") lightboxNav(-1);
           if (e.key === "ArrowRight") lightboxNav(1);
@@ -657,78 +843,22 @@
     </script>
     <script>
       (function () {
-        const months = ["Sausis","Vasaris","Kovas","Balandis","Gegu&#382;&#279;","Bir&#382;elis","Liepa","Rugpj&#363;tis","Rugs&#279;jis","Spalis","Lapkritis","Gruodis"];
-        const monthNames = ["Sausis","Vasaris","Kovas","Balandis","Gegužė","Birželis","Liepa","Rugpjūtis","Rugsėjis","Spalis","Lapkritis","Gruodis"];
-        let current = new Date();
-        let curMonth = current.getMonth();
-        let curYear = current.getFullYear();
-        let checkin = null, checkout = null, guests = 1;
-
-        function renderCalendar() {
-          document.getElementById("cal-month").textContent = monthNames[curMonth] + " " + curYear;
-          const first = new Date(curYear, curMonth, 1);
-          const lastDay = new Date(curYear, curMonth + 1, 0).getDate();
-          let startDay = first.getDay() - 1;
-          if (startDay < 0) startDay = 6;
-          const container = document.getElementById("cal-days");
-          container.innerHTML = "";
-          for (let i = 0; i < startDay; i++) {
-            container.innerHTML += '<span class="py-1.5"></span>';
-          }
-          const today = new Date();
-          today.setHours(0, 0, 0, 0);
-          for (let d = 1; d <= lastDay; d++) {
-            const date = new Date(curYear, curMonth, d);
-            const isPast = date < today;
-            const isCheckin = checkin && date.getTime() === checkin.getTime();
-            const isCheckout = checkout && date.getTime() === checkout.getTime();
-            const inRange = checkin && checkout && date > checkin && date < checkout;
-            let cls = "py-1.5 rounded-lg cursor-pointer transition-colors ";
-            if (isPast) {
-              cls += "text-outline/40 cursor-default";
-            } else if (isCheckin || isCheckout) {
-              cls += "bg-primary text-white font-semibold";
-            } else if (inRange) {
-              cls += "bg-primary/15 text-primary";
-            } else {
-              cls += "hover:bg-surface-container-high text-on-surface";
-            }
-            container.innerHTML += '<span class="' + cls + '" data-day="' + d + '" ' + (isPast ? "" : 'onclick="selectDay(' + d + ')"') + ">" + d + "</span>";
-          }
-        }
-
-        window.selectDay = function (d) {
-          const date = new Date(curYear, curMonth, d);
-          if (!checkin || (checkin && checkout)) {
-            checkin = date;
-            checkout = null;
-          } else if (date > checkin) {
-            checkout = date;
-          } else {
-            checkin = date;
-            checkout = null;
-          }
-          const fmt = function (dt) {
-            return dt.getFullYear() + "-" + String(dt.getMonth() + 1).padStart(2, "0") + "-" + String(dt.getDate()).padStart(2, "0");
-          };
-          document.getElementById("cal-checkin").textContent = checkin ? fmt(checkin) : "—";
-          document.getElementById("cal-checkout").textContent = checkout ? fmt(checkout) : "—";
-          renderCalendar();
-        };
-
-        window.changeMonth = function (dir) {
-          curMonth += dir;
-          if (curMonth > 11) { curMonth = 0; curYear++; }
-          if (curMonth < 0) { curMonth = 11; curYear--; }
-          renderCalendar();
-        };
+        let guests = 1;
+        // Set min date to today on date inputs
+        const today = new Date().toISOString().split("T")[0];
+        const checkinEl = document.getElementById("cal-checkin");
+        const checkoutEl = document.getElementById("cal-checkout");
+        if (checkinEl) checkinEl.min = today;
+        if (checkoutEl) checkoutEl.min = today;
+        if (checkinEl)
+          checkinEl.addEventListener("change", function () {
+            if (checkoutEl) checkoutEl.min = this.value;
+          });
 
         window.updateGuests = function (dir) {
           guests = Math.max(1, Math.min(10, guests + dir));
           document.getElementById("guest-count").textContent = guests;
         };
-
-        renderCalendar();
       })();
     </script>
   </body>
